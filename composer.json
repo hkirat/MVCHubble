@@ -1,0 +1,16 @@
+{
+"name" : "alumniConnect",
+"description" : "Project For Keeping Data About Alumni",
+"require":{
+"torophp/torophp":"dev-master",
+"twig/twig":"1.*"
+},
+"require-dev":{
+},
+"autoload":{
+	"psr-4":{
+		"Controllers\\": "app/controllers",
+		"Models\\":"app/models"
+}
+}
+}
