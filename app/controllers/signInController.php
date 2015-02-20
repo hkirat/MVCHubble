@@ -1,6 +1,7 @@
 <?php
 	namespace Controllers;
 	use Models\PostList;
+	use Models\user;
 	class signInController{
 		protected $twig;
 		public function __construct ()
@@ -14,30 +15,22 @@
 		{
 				$userid=$_POST["userid"];
 				$password=$_POST["password"];
-				$conn = new \mysqli('localhost', 'root', '123', 'first');
-				if ($conn->connect_error) 
-					{
-						die("Connection failed: " . $conn->connect_error);
-					} 
-				else
+				if (user::check($userid,$password))
 				{
-		$sql = "SELECT userid,password,name FROM table1 WHERE userid='$userid' AND password='$password'";
-					$result = $conn->query($sql);
-					if ($result->num_rows > 0) 
-					{$_SESSION["userid"] =$userid;
+					$_SESSION["userid"] =$userid;
 					$posts=PostList::getPosts(0);
 					echo $this->twig->render("main.php",array(
 					"title"=>"Posts | MVC Blog",
 					"posts"=>$posts
 					));
-					}
-					else 
-					{
-						echo "Wrong Id Password Combination.";
+				}
+				else
+				{
+						echo "The email password combination is wrong";
 
-				$conn->close();
 				}
-				}
+				
+				
 	}
 }
 
