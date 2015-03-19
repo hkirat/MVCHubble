@@ -11,9 +11,8 @@ $this->db=self::getDB();
 }
 public static function getDB(){
 
-return new \PDO ("mysql:dbname=first;host=localhost","root","123");
+return new \PDO ("mysql:dbname=$database_name;host=$webpage_host","db_username","$db_password");
 
-}
 public static function getPosts($offset)
 {
 $db=self::getDB();

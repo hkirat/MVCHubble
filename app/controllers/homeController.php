@@ -1,4 +1,4 @@
-<?php
+ <?php
 	namespace Controllers;
 	class HomeController{
 		protected $twig;
@@ -14,7 +14,7 @@
 				"title" => "MVC BLOGG",
 				"message" => "WELCOME TO HUBBLE."
 			));
-			
+	
 		}
 	}
 

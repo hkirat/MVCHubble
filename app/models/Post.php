@@ -10,12 +10,12 @@ $this->db=self::getDB();
 }
 public static function getDB(){
 
-return new \PDO ("mysql:dbname=first;host=localhost","root","123");
+return new \PDO ("mysql:dbname=$database_name;host=$webpage_host","db_username","$db_password");
 
 }
 public static function create($user,$message)
 {
-$db=new \PDO ("mysql:dbname=first;host=localhost","root","123");
+$db=new \PDO ("mysql:dbname=$database_name;host=$webpage_host","db_username","$db_password");
 $statement =$db->prepare("INSERT INTO table2(user,message) VALUES (:user,:message)");
 }
 }
